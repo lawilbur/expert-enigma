@@ -243,7 +243,7 @@ app.controller("MainController", ["$http", function($http) {
     this.getComic = () => {
         $http({
             method: "GET",
-            url: "http://gateway.marvel.com/v1/public/comics?format=comic&titleStartsWith=" + this.comicTitle + "&limit=10&",
+            url: "http://gateway.marvel.com/v1/public/comics?format=comic&titleStartsWith=" + this.comicTitle + "&limit=1&",
             params: {
                 'apikey': '7b49ff852ac74755185800b0e24708a7',
                 'ts': Date.now(),
@@ -253,7 +253,8 @@ app.controller("MainController", ["$http", function($http) {
                 Accept: 'application/json'
             }
         }).then((response) => {
-            console.log(response);
+            console.log(response.data.data.results[0].images[0].path);
+            response.data.data.results[0].images[0].path =response.data.data.results[0].images[0].path +'/portrait_small.jpg';
             this.gotComics = response.data.data.results;
         }, (error) => {
             console.error(error);

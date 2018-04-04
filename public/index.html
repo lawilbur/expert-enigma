@@ -19,7 +19,7 @@
             <h3>Enter some stuff</h3>
             <form ng-submit="ctrl.createItem()">
                 <label for="title">Title:</label>
-                <input type="text" name="title" ng-model="ctrl.title"placeholder="Title"></br>
+                <input type="text" name="title" ng-model="ctrl.title" placeholder="Title"></br>
                 <label for="cover">Cover Image:</label>
                 <input type="text" name="cover" ng-model="ctrl.cover" placeholder="Cover Image"></br>
                 <label for="year">Year:</label>
@@ -31,15 +31,15 @@
         </div>
         <div>
             <form ng-submit='ctrl.getComic()'>
-                <input type="text" placeholder="Comic name" ng-model='ctrl.comicTitle'/>
-                <input type="submit" value="Search"/>
+                <input type="text" placeholder="Comic name" ng-model='ctrl.comicTitle' />
+                <input type="submit" value="Search" />
             </form>
         </div>
         <div>
             <div ng-repeat='item in ctrl.gotComics'>
-                {{item.title}}
+                {{item.title}}</br>
                 {{item.description}}
-                {{item.images[0]}}
+                <img src="{{item.images[0].path}}" />
             </div>
         </div>
     </div>
