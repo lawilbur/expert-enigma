@@ -16,6 +16,19 @@ app.controller("MainController", ["$http", function($http) {
         });
     };
 
+    this.getSeed = () => {
+        $http({
+            method: "POST",
+            url: "/peppers/seed"
+        }).then((response) => {
+            console.log(response);
+        }, (error) => {
+            console.log("error");
+        });
+    };
+
+    // this.getSeed();
+
     this.createItem = (item) => {
         $http({
             method: "POST",
