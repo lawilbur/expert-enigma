@@ -11,7 +11,7 @@
 
 <body ng-controller="MainController as ctrl">
     <div class='mainContainer'>
-        <div class='Header'>
+        <div class='header'>
             <h1>This is a page about stuff!!</h1>
         </div>
 
@@ -30,8 +30,16 @@
             </form>
         </div>
         <div>
+            <form ng-submit='ctrl.getComic()'>
+                <input type="text" placeholder="Comic name" ng-model='ctrl.comicTitle'/>
+                <input type="submit" value="Search"/>
+            </form>
+        </div>
+        <div>
             <div ng-repeat='item in ctrl.gotComics'>
                 {{item.title}}
+                {{item.description}}
+                {{item.images[0]}}
             </div>
         </div>
     </div>
