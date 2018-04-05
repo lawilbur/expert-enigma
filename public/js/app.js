@@ -231,7 +231,7 @@ app.controller("MainController", ["$http", function($http) {
     this.showComics = false;
     this.comicTitle = '';
 
-    this.includePath = '';
+    this.includePath = 'partials/home.html';
     this.changeInclude = (path) => {
         this.includePath = 'partials/' + path + '.html';
     };

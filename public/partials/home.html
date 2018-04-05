@@ -1,0 +1,31 @@
+<div class="bodyContainer">
+    <div class='header'>
+        <h1>This is a page about stuff!!</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <div class="scrollSection">
+        <div class='imageContainer' ng-repeat="comic in ctrl.gotRandomComics">
+            <img ng-click="ctrl.addToShow($index)" ng-src="{{comic.images[0].path}}" title="{{comic.title}}"/>
+        </div>
+
+    </div>
+
+    <div ng-if="ctrl.showComics" class="scrollSpotlight ">
+        <div ng-repeat="show in ctrl.showArray">
+            <img ng-src="{{show.images[0].path}}" title="{{show.title}}"/>
+            <div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div ng-repeat='item in ctrl.gotComics'>
+            {{item.title}}</br>
+            {{item.description}}
+            <img ng-src="{{item.images[0].path}}"/>
+            <button type="submit" ng-click="ctrl.addComic(item)">Add Comic</button>
+        </div>
+    </div>
+</div>

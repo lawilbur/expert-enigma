@@ -19,60 +19,9 @@
 
         </div>
 
-        <div class="bodyContainer">
-            <div class='header'>
-                <h1>This is a page about stuff!!</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-
-            <div class="scrollSection">
-                <div class='imageContainer' ng-repeat="comic in ctrl.gotRandomComics">
-                    <img ng-click="ctrl.addToShow($index)" ng-src="{{comic.images[0].path}}" title="{{comic.title}}"/>
-                </div>
-
-            </div>
-
-            <div ng-if="ctrl.showComics" class="scrollSpotlight ">
-                <div ng-repeat="show in ctrl.showArray">
-                    <img ng-src="{{show.images[0].path}}" title="{{show.title}}"/>
-                    <div>
-                    </div>
-                </div>
-            </div>
-
-            <div class='createItem'>
-                <h3>Enter some stuff</h3>
-                <form ng-submit="ctrl.createItem()">
-                    <label for="title">Title:</label>
-                    <input type="text" name="title" ng-model="ctrl.title" placeholder="Title"></br>
-                    <label for="cover">Cover Image:</label>
-                    <input type="text" name="cover" ng-model="ctrl.cover" placeholder="Cover Image"></br>
-                    <label for="year">Year:</label>
-                    <input type="text" name="year" ng-model="ctrl.year" placeholder="Year"></br>
-                    <label for="description">Description</label>
-                    <input type="text" name="description" ng-model="ctrl.description" placeholder="Description"></br>
-                    <button type="submit">Add Item</button>
-                </form>
-            </div>
-
-            <div>
-                <div ng-repeat='comics in ctrl.myItems'>
-                    {{comics.title}}</br>
-                    {{comics.description}}
-                    <img ng-src="{{comics.cover}}" />
-                </div>
-            </div>
-
-            <div>
-                <div ng-repeat='item in ctrl.gotComics'>
-                    {{item.title}}</br>
-                    {{item.description}}
-                    <img ng-src="{{item.images[0].path}}"/>
-                    <button type="submit" ng-click="ctrl.addComic(item)">Add Comic</button>
-                </div>
-            </div>
+        <div ng-include="ctrl.includePath">
         </div>
+
         <div id="footer" ng-include="'partials/footer.html'">
 
         </div>
