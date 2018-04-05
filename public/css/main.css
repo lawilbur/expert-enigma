@@ -21,8 +21,18 @@ h3, h5 {
 }
 
 .scrollSection {
-    height: 200px;
+    height: 250px;
     background: gray;
+    display: flex;
+    align-items: center;
+}
+
+.imageContainer{
+    max-width: 150px;
+    margin: 0 10px;
+}
+.imageContainer img{
+    width: 100%;
 }
 
 .scrollSpotlight {
