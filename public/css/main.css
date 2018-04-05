@@ -5,7 +5,9 @@
 html{
     /* margin-top: 0; */
 }
-
+.mainContainer{
+    /* width: 90%; */
+}
 .bodyContainer {
     margin: auto;
     max-width: 80%;
@@ -25,6 +27,7 @@ h3, h5 {
     background: gray;
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 
 .imageContainer{
@@ -48,6 +51,7 @@ h3, h5 {
     align-items: center;
     position: fixed;
     z-index: 10;
+    overflow: hidden;
 }
 
 .searchContainer{
