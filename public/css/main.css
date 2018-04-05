@@ -6,6 +6,30 @@ html{
     /* margin-top: 0; */
 }
 
+.bodyContainer {
+    margin: auto;
+    max-width: 80%;
+}
+
+h1 {
+    font-family: 'Bangers', cursive;
+    text-align: center;
+}
+
+h3, h5 {
+    font-family: 'Permanent Marker', cursive;
+}
+
+.scrollSection {
+    height: 200px;
+    background: gray;
+}
+
+.scrollSpotlight {
+    height: 200px;
+    background: lightgrey;
+}
+
 .navContainer{
     display: flex;
     width: 100%;
@@ -27,5 +51,55 @@ html{
 }
 
 .header{
-    padding-top: 5%;
+    padding-top: 100px;
+}
+
+
+
+#footer {
+   bottom: 0;
+   width: 100%;
+   background: gray;
+   text-align: center;
+   color: white;
+   padding: 40px;
+}
+
+#footer a {
+    color: white;
+}
+
+#footer a:hover {
+    opacity: 0.7;
+}
+
+.footer-links {
+    padding: 0;
+    color: white;
+    list-style: none;
+}
+
+.footer-links a {
+    color: white;
+    margin-top: 15px;
+}
+
+.footer-links a:hover {
+    opacity: 0.7;
+}
+
+.fa {
+    font-size: 30px;
+    width: 30px;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.fa-heart {
+    margin-bottom: 0;
+}
+
+.fa:hover {
+    opacity: 0.7;
 }

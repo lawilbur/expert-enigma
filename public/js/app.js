@@ -226,6 +226,7 @@ app.controller("MainController", ["$http", function($http) {
 
     this.myItems = [];
     this.gotComics = [];
+    this.gotRandomComics = [];
     this.comicTitle = '';
 
     this.getItems = () => {
@@ -241,7 +242,7 @@ app.controller("MainController", ["$http", function($http) {
             console.log("error");
         });
     };
-    this.getItems();
+
 
 
     this.getComic = () => {
@@ -262,26 +263,50 @@ app.controller("MainController", ["$http", function($http) {
                 response.data.data.results[i].images[0].path =response.data.data.results[i].images[0].path +'/portrait_small.jpg';
             }
             // console.log(response.data.data.results);
-
             this.gotComics = response.data.data.results;
         }, (error) => {
             console.error(error);
         }).catch((err) => console.error('Catch: ', err));
     };
-    // this.getMovies();
 
-    this.getSeed = () => {
+    this.getRandomComic = () => {
         $http({
-            method: "POST",
-            url: "/peppers/seed"
+            method: "GET",
+            url: "http://gateway.marvel.com/v1/public/comics?format=comic&limit=5&",
+            params: {
+                'apikey': '7b49ff852ac74755185800b0e24708a7',
+                'ts': Date.now(),
+                'hash': MD5(Date.now() + value)
+            },
+            Headers: {
+                Accept: 'application/json'
+            }
         }).then((response) => {
-            console.log(response);
+            console.log(response.data.data.results);
+            // for(i = 0; i < response.data.data.results.length; i++){
+            //     response.data.data.results[i].images[0].path =response.data.data.results[i].images[0].path +'/portrait_small.jpg';
+            // }
+            // console.log(response.data.data.results);
+            this.gotRandomComics = response.data.data.results;
         }, (error) => {
-            console.log("error");
-        });
+            console.error(error);
+        }).catch((err) => console.error('Catch: ', err));
     };
 
-    // this.getSeed();
+
+
+    // this.getSeed = () => {
+    //     $http({
+    //         method: "POST",
+    //         url: "/peppers/seed"
+    //     }).then((response) => {
+    //         console.log(response);
+    //     }, (error) => {
+    //         console.log("error");
+    //     });
+    // };
+
+
 
     this.createItem = (item) => {
         $http({
@@ -361,6 +386,7 @@ app.controller("MainController", ["$http", function($http) {
         }).catch((err) => console.error("Catch ", error));
     };
 
-
+this.getRandomComic();
+this.getItems();
 
 }]);
