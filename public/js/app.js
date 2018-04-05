@@ -233,17 +233,21 @@ app.controller("MainController", ["$http", function($http) {
             method: "GET",
             url: "/peppers"
         }).then((response) => {
+            console.log(response);
             this.myItems = response.data;
+            // console.log(this.myItems);
+            // this.getItems();
         }, (error) => {
             console.log("error");
         });
     };
+    this.getItems();
 
 
     this.getComic = () => {
         $http({
             method: "GET",
-            url: "http://gateway.marvel.com/v1/public/comics?format=comic&titleStartsWith=" + this.comicTitle + "&limit=1&",
+            url: "http://gateway.marvel.com/v1/public/comics?format=comic&titleStartsWith=" + this.comicTitle + "&limit=5&",
             params: {
                 'apikey': '7b49ff852ac74755185800b0e24708a7',
                 'ts': Date.now(),
@@ -253,8 +257,12 @@ app.controller("MainController", ["$http", function($http) {
                 Accept: 'application/json'
             }
         }).then((response) => {
-            console.log(response.data.data.results[0].images[0].path);
-            response.data.data.results[0].images[0].path =response.data.data.results[0].images[0].path +'/portrait_small.jpg';
+            // console.log(response.data.data.results);
+            for(i = 0; i < response.data.data.results.length; i++){
+                response.data.data.results[i].images[0].path =response.data.data.results[i].images[0].path +'/portrait_small.jpg';
+            }
+            // console.log(response.data.data.results);
+
             this.gotComics = response.data.data.results;
         }, (error) => {
             console.error(error);
@@ -317,6 +325,27 @@ app.controller("MainController", ["$http", function($http) {
         });
     };
 
+    this.addComic = (comic) => {
+        // console.log(comic.images[0].path);
+        $http({
+            method: "POST",
+            url: "/peppers",
+            data: {
+                title: comic.title,
+                cover: comic.images[0].path,
+                year: comic.year,
+                description: comic.description
+            }
+        }).then((response) => {
+            this.myItems.push(response.data.data);
+            // console.log(this.myItems);
+            this.getItems();
+
+        }, (error) => {
+            console.log(error);
+        }).catch((err) => console.error("Catch ", err));
+    };
+
     this.itemLikes = (item) => {
         $http({
             method: "PUT",
@@ -332,6 +361,6 @@ app.controller("MainController", ["$http", function($http) {
         }).catch((err) => console.error("Catch ", error));
     };
 
-    this.getItems();
+
 
 }]);
