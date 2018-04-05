@@ -1,0 +1,16 @@
+<h5 ng-click="ctrl.changeInclude('home')">Home</h5>
+<h5 ng-click="ctrl.changeInclude('create')">Upload</h5>
+<div class='searchContainer'>
+    <form ng-submit='ctrl.getComic()'>
+        <select>
+            <option>Comics</option>
+            <option>Characters</option>
+            <option>Series</option>
+            <option>Stories</option>
+        </select>
+        <input type="text" placeholder="Comic name" ng-model='ctrl.comicTitle' />
+        <input type="submit" value="Search" />
+    </form>
+</div>
+<h5>Contact</h5>
+<h5 ng-click="ctrl.changeInclude('')">Login</h5>

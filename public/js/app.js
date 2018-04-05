@@ -231,6 +231,11 @@ app.controller("MainController", ["$http", function($http) {
     this.showComics = false;
     this.comicTitle = '';
 
+    this.includePath = '';
+    this.changeInclude = (path) => {
+        this.includePath = 'partials/' + path + '.html';
+    };
+
     this.getItems = () => {
         $http({
             method: "GET",

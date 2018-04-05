@@ -15,23 +15,7 @@
 
 <body ng-controller="MainController as ctrl">
     <div class='mainContainer'>
-        <div class='navContainer'>
-            <h5>Home</h5>
-            <h5>Upload</h5>
-            <div class='searchContainer'>
-                <form ng-submit='ctrl.getComic()'>
-                    <select>
-                        <option>Comics</option>
-                        <option>Characters</option>
-                        <option>Series</option>
-                        <option>Stories</option>
-                    </select>
-                    <input type="text" placeholder="Comic name" ng-model='ctrl.comicTitle' />
-                    <input type="submit" value="Search" />
-                </form>
-            </div>
-            <h5>Contact</h5>
-            <h5>Login</h5>
+        <div ng-include="'partials/nav.html'" class='navContainer'>
 
         </div>
 
@@ -44,14 +28,14 @@
 
             <div class="scrollSection">
                 <div class='imageContainer' ng-repeat="comic in ctrl.gotRandomComics">
-                    <img ng-click="ctrl.addToShow($index)" src="{{comic.images[0].path}}" title="{{comic.title}}"/>
+                    <img ng-click="ctrl.addToShow($index)" ng-src="{{comic.images[0].path}}" title="{{comic.title}}"/>
                 </div>
 
             </div>
 
             <div ng-if="ctrl.showComics" class="scrollSpotlight ">
                 <div ng-repeat="show in ctrl.showArray">
-                    <img src="{{show.images[0].path}}" title="{{show.title}}"/>
+                    <img ng-src="{{show.images[0].path}}" title="{{show.title}}"/>
                     <div>
                     </div>
                 </div>
@@ -71,18 +55,20 @@
                     <button type="submit">Add Item</button>
                 </form>
             </div>
+
             <div>
                 <div ng-repeat='comics in ctrl.myItems'>
                     {{comics.title}}</br>
                     {{comics.description}}
-                    <img src="{{comics.cover}}" />
+                    <img ng-src="{{comics.cover}}" />
                 </div>
             </div>
+
             <div>
                 <div ng-repeat='item in ctrl.gotComics'>
                     {{item.title}}</br>
                     {{item.description}}
-                    <img src="{{item.images[0].path}}"/>
+                    <img ng-src="{{item.images[0].path}}"/>
                     <button type="submit" ng-click="ctrl.addComic(item)">Add Comic</button>
                 </div>
             </div>
