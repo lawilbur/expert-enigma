@@ -227,6 +227,8 @@ app.controller("MainController", ["$http", function($http) {
     this.myItems = [];
     this.gotComics = [];
     this.gotRandomComics = [];
+    this.showArray = [];
+    this.showComics = false;
     this.comicTitle = '';
 
     this.getItems = () => {
@@ -300,7 +302,13 @@ app.controller("MainController", ["$http", function($http) {
         }).catch((err) => console.error('Catch: ', err));
     };
 
-
+    this.addToShow = (index) =>{
+        console.log(index);
+        this.showArray = this.gotRandomComics[index];
+        console.log(this.showArray);
+        this.showComics = !this.showComics;
+        console.log(this.showComics);
+    }
 
     // this.getSeed = () => {
     //     $http({

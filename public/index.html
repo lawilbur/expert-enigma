@@ -44,13 +44,17 @@
 
             <div class="scrollSection">
                 <div class='imageContainer' ng-repeat="comic in ctrl.gotRandomComics">
-                    <img src="{{comic.images[0].path}}"/>
+                    <img ng-click="ctrl.addToShow($index)" src="{{comic.images[0].path}}" title="{{comic.title}}"/>
                 </div>
-                
+
             </div>
 
-            <div class="scrollSpotlight">
-
+            <div ng-if="ctrl.showComics" class="scrollSpotlight ">
+                <div ng-repeat="show in ctrl.showArray">
+                    <img src="{{show.images[0].path}}" title="{{show.title}}"/>
+                    <div>
+                    </div>
+                </div>
             </div>
 
             <div class='createItem'>
