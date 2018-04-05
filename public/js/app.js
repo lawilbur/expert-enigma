@@ -293,9 +293,8 @@ app.controller("MainController", ["$http", function($http) {
 
                 }
             }
-
-            this.gotRandomComics.push(response.data.data.results);
-            console.log(gotRandomComics);
+            console.log(response.data.data.results);
+            this.gotRandomComics = response.data.data.results;
         }, (error) => {
             console.error(error);
         }).catch((err) => console.error('Catch: ', err));
