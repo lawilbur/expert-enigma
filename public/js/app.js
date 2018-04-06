@@ -278,7 +278,7 @@ app.controller("MainController", ["$http", function($http) {
         let randomOffset = Math.floor(Math.random() * 2000);
         $http({
             method: "GET",
-            url: "http://gateway.marvel.com/v1/public/comics?format=comic&limit=5&offset=" + randomOffset + "&",
+            url: "http://gateway.marvel.com/v1/public/comics?format=comic&limit=10&offset=" + randomOffset + "&",
             params: {
                 'apikey': '7b49ff852ac74755185800b0e24708a7',
                 'ts': Date.now(),

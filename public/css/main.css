@@ -4,9 +4,10 @@
 }
 
 html {
-    background: dimgray;
-    /* background: dimgray url("https://images5.alphacoders.com/371/thumb-1920-371124.jpg") no-repeat fixed center; */
+    /* background: dimgray; */
+    background: dimgray url("https://images5.alphacoders.com/371/thumb-1920-371124.jpg") no-repeat fixed center;
     z-index: 0;
+    /* filter: grayscale(100%); */
 }
 
 body {
@@ -62,6 +63,11 @@ img {
     text-align: center;
     max-width: 400px;
 }
+.searchBox{
+    border-radius: 5px;
+    padding: 2px;
+    border: none;
+}
 
 .btn {
     background: gray;
@@ -74,8 +80,8 @@ img {
 
 .btn-primary {
     background: cornflowerblue;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 2px;
+    border-radius: 5px;
     color: black;
     border: none;
     cursor: pointer;
@@ -86,11 +92,18 @@ img {
     background: gray;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    /* overflow-x: auto; */
+    overflow: hidden;
 }
-
-.imageContainer {
-    max-width: 150px;
+.scrollSection > div {
+  /* make sure the width is honored */
+  flex-shrink: 0;
+  /* width: 300px; */
+  height: 225px;
+}
+.carousel-cell {
+    width: 150px;
     margin: 0 10px;
 }
 
@@ -121,6 +134,7 @@ img {
 
 .searchContainer {
     padding: 10px;
+
 }
 
 .searchContainer form {
@@ -128,6 +142,7 @@ img {
     background-color: black;
     border-radius: 10px;
     padding: 10px;
+    box-shadow: 0 5px 5px grey;
 }
 
 .header, .profile-header, .form-header {
