@@ -230,6 +230,7 @@ app.controller("MainController", ["$http", function($http) {
     this.showArray = [];
     this.showComics = false;
     this.comicTitle = '';
+    this.editForm = null;
 
     this.includePath = 'partials/home.html';
     this.changeInclude = (path) => {
@@ -333,9 +334,7 @@ app.controller("MainController", ["$http", function($http) {
             data: {
                 title: item.title,
                 cover: item.cover,
-                year: item.year,
-                description: item.description,
-                likes: item.likes
+                description: item.description
             }
         }).then((response) => {
             this.getItems();
@@ -354,14 +353,14 @@ app.controller("MainController", ["$http", function($http) {
     };
 
     this.editItem = (item) => {
+        console.log(item);
         $http({
             method: "PUT",
             url: "/peppers/" + item._id,
             data: {
-                title: this.updateTitle,
-                cover: this.updateCover,
-                year: this.updateYear,
-                description: this.updateDescription
+                title: item.title,
+                cover: item.cover,
+                description: item.description
             }
         }).then((response) => {
             this.getItems();
@@ -376,7 +375,6 @@ app.controller("MainController", ["$http", function($http) {
             data: {
                 title: comic.title,
                 cover: comic.images[0].path,
-                year: comic.year,
                 description: comic.description
             }
         }).then((response) => {
