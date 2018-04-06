@@ -23,12 +23,7 @@
 
         <div ng-include="ctrl.includePath">
         </div>
-        <div class="carousel scrollSection" data-flickity='{"freeScroll":"true", "contain": "true", "autoPlay": "true", "cellAlign": "left"}'>
-            <div class='carousel-cell' ng-repeat="comic in ctrl.gotRandomComics">
-                <!-- <img class="carousel-cell-image" ng-click="ctrl.addToShow($index)" ng-src="{{comic.images[0].path}}" title="{{comic.title}}"/> -->
-            </div>
-
-        </div>
+    
 
         <div id="footer" ng-include="'partials/footer.html'">
 
