@@ -7,8 +7,8 @@
             <img ng-src="{{comics.cover}}" />
             <p class="card-text">{{comics.description}}</p>
             <div class="editDelete">
-                <img src="../images/ic_edit_black_24dp_2x.png" ng-click="ctrl.editForm = $index">
-                <img src="../images/ic_delete_forever_black_24dp_2x.png" ng-click="ctrl.deleteItem(comics)">
+                <img src="../images/ic_more_horiz_black_24dp_2x.png" ng-click="ctrl.editForm = $index" title="expand edit">
+
                 <form class="" ng-if="$index === ctrl.editForm" ng-submit="ctrl.editItem(comics)">
                     <div class="form-row">
                         <div class="form-group col-md-12">
@@ -28,7 +28,11 @@
                             <textarea class="form-control" type="text" name="description" placeholder="{{comics.description}}" ng-model="comics.description" rows="8" col="80"></textarea>
                         </div>
                     </div>
-                    <button class="btn" ng-click="ctrl.editForm = null" type="submit">Update</button>
+                    <div class="editDelete">
+                        <button class="btn-primary" type="submit"><img src="../images/ic_check_circle_black_24dp_2x.png" title="update"></button>
+                        <img src="../images/ic_delete_forever_black_24dp_2x.png" ng-click="ctrl.deleteItem(comics)" title="delete">
+                    </div>
+                    <img src="../images/ic_more_horiz_black_24dp_2x.png" ng-click="ctrl.editForm = null" title="collapse edit">
                 </form>
             </div>
 
