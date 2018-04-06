@@ -1,10 +1,17 @@
 const express = require('express');
 const peppers = express.Router();
 const Game = require('../models/models.js');
+const Seed = require('../models/seed.js');
 
 peppers.get('/' , (req , res)=>{
     Game.find({}, (err , foundGames)=>{
         res.json(foundGames);
+    });
+});
+
+peppers.post('/seed', (req, res)=>{
+    Game.create(Seed, (err, createdSeed)=>{
+        res.json(createdSeed);
     });
 });
 

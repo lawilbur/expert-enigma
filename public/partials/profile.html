@@ -1,0 +1,41 @@
+
+<div class="profile-header">
+    <h1>Profile!</h1>
+    <div class="card-container">
+        <div class="card text-center" style="width: 20rem;" ng-repeat='comics in ctrl.myItems'>
+            <h5 class="card-title">{{comics.title}}</h5>
+            <img ng-src="{{comics.cover}}" />
+            <p class="card-text">{{comics.description}}</p>
+            <div class="editDelete">
+                <img src="../images/ic_more_horiz_black_24dp_2x.png" ng-click="ctrl.editForm = $index" title="expand edit">
+
+                <form class="" ng-if="$index === ctrl.editForm" ng-submit="ctrl.editItem(comics)">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="title">Title (Year) #Issue</label><br/>
+                            <input class="form-control" type="text" name="title" placeholder="{{comics.title}}" ng-model="comics.title">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="cover">Cover Image URL</label><br/>
+                            <input class="form-control" type="text" name="cover" placeholder="{{comics.cover}}" ng-model="comics.cover">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="description">Description</label><br/>
+                            <textarea class="form-control" type="text" name="description" placeholder="{{comics.description}}" ng-model="comics.description" rows="8" col="80"></textarea>
+                        </div>
+                    </div>
+                    <div class="editDelete">
+                        <button class="btn-primary" type="submit"><img src="../images/ic_check_circle_black_24dp_2x.png" title="update"></button>
+                        <img src="../images/ic_delete_forever_black_24dp_2x.png" ng-click="ctrl.deleteItem(comics)" title="delete">
+                    </div>
+                    <img src="../images/ic_more_horiz_black_24dp_2x.png" ng-click="ctrl.editForm = null" title="collapse edit">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
