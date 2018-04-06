@@ -1,16 +1,20 @@
-<h5 ng-click="ctrl.changeInclude('home')">Home</h5>
-<h5 ng-click="ctrl.changeInclude('create')">Upload</h5>
+<h4 class="nav-item" ng-click="ctrl.changeInclude('home')">Home</h4>
+<h4 class="nav-item" ng-click="ctrl.changeInclude('create')">Upload</h4>
 <div class='searchContainer'>
-    <form ng-submit='ctrl.getComic()'>
-        <select>
-            <option>Comics</option>
-            <option>Characters</option>
-            <option>Series</option>
-            <option>Stories</option>
-        </select>
-        <input type="text" placeholder="Comic name" ng-model='ctrl.comicTitle' />
-        <input type="submit" value="Search" />
+    <form class="" ng-submit='ctrl.getComic()'>
+
+            <select class="">
+                <option>Comics</option>
+                <option>Characters</option>
+                <option>Series</option>
+                <option>Stories</option>
+            </select>
+
+
+            <input class="searchBox" type="text" placeholder="Comic Title" ng-model='ctrl.comicTitle' />
+
+        <button ng-click="ctrl.changeInclude('home')" class="btn-primary" type="submit">Search</button>
     </form>
 </div>
-<h5>Contact</h5>
-<h5 ng-click="ctrl.changeInclude('profile')">Login</h5>
+<h4 class="nav-item">About</h4>
+<h4 class="nav-item" ng-click="ctrl.changeInclude('profile')">Login</h4>
