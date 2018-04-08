@@ -14,10 +14,14 @@
     </div>
 
     <div ng-if="ctrl.showComics" class="scrollSpotlight ">
-        <div ng-repeat="comics in ctrl.showArray">
-            <img ng-src="{{comics.images[0].path}}" title="{{comics.title}}"/>
+        <div ng-show="ctrl.showArray">
+            <img ng-src="{{ctrl.showArray.images[0].path}}" title="{{show.title}}"/>
             <div>
-                {{show.title}}
+                {{ctrl.showArray.title}}
+                {{ctrl.showArray.characters.items[0].name}}
+                <ul ng-repeat='creators in ctrl.showArray.creators.items'>
+                    <li>{{creators.role}}: {{creators.name}}</li>
+                </ul>
             </div>
         </div>
     </div>

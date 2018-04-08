@@ -295,7 +295,7 @@ app.controller("MainController", ["$http", function($http) {
                 Accept: 'application/json'
             }
         }).then((response) => {
-            console.log(response);
+            // console.log(response);
             for(i = 0; i < response.data.data.results.length; i++){
                 // console.log(response.data.data.results[i].images[0]);
                 if(response.data.data.results[i].images[0] !== undefined){
@@ -305,7 +305,7 @@ app.controller("MainController", ["$http", function($http) {
 
                 }
             }
-            console.log(response.data.data.results);
+            // console.log(response.data.data.results);
             this.gotRandomComics = response.data.data.results;
         }, (error) => {
             console.error(error);
