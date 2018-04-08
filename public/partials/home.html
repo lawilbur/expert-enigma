@@ -14,9 +14,10 @@
     </div>
 
     <div ng-if="ctrl.showComics" class="scrollSpotlight ">
-        <div ng-repeat="show in ctrl.showArray">
-            <img ng-src="{{show.images[0].path}}" title="{{show.title}}"/>
+        <div ng-repeat="comics in ctrl.showArray">
+            <img ng-src="{{comics.images[0].path}}" title="{{comics.title}}"/>
             <div>
+                {{show.title}}
             </div>
         </div>
     </div>

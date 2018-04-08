@@ -254,7 +254,7 @@ app.controller("MainController", ["$http", function($http) {
     this.getComic = () => {
         $http({
             method: "GET",
-            url: "http://gateway.marvel.com/v1/public/comics?format=comic&titleStartsWith=" + this.comicTitle + "&limit=12&",
+            url: "http://gateway.marvel.com/v1/public/comics?noVariants=true&titleStartsWith=" + this.comicTitle + "&limit=12&",
             params: {
                 'apikey': '7b49ff852ac74755185800b0e24708a7',
                 'ts': Date.now(),
@@ -264,9 +264,15 @@ app.controller("MainController", ["$http", function($http) {
                 Accept: 'application/json'
             }
         }).then((response) => {
-            // console.log(response.data.data.results);
+            console.log(response)
             for(i = 0; i < response.data.data.results.length; i++){
-                response.data.data.results[i].images[0].path =response.data.data.results[i].images[0].path +'/portrait_xlarge.jpg';
+                // console.log(response.data.data.results[i].images[0]);
+                if(response.data.data.results[i].images[0] !== undefined){
+                    response.data.data.results[i].images[0].path = response.data.data.results[i].images[0].path +'/portrait_xlarge.jpg';
+                } else {
+                    response.data.data.results[i].images = [{path: "https://lightning.od-cdn.com/19.3.16-build-1625-master/public/img/no-cover_en_US.jpg"}];
+
+                }
             }
             // console.log(response.data.data.results);
             this.gotComics = response.data.data.results;
@@ -279,7 +285,7 @@ app.controller("MainController", ["$http", function($http) {
         let randomOffset = Math.floor(Math.random() * 2000);
         $http({
             method: "GET",
-            url: "http://gateway.marvel.com/v1/public/comics?format=comic&limit=30&offset=" + randomOffset + "&",
+            url: "http://gateway.marvel.com/v1/public/comics?format=comic&noVariants=true&limit=30&offset=" + randomOffset + "&",
             params: {
                 'apikey': '7b49ff852ac74755185800b0e24708a7',
                 'ts': Date.now(),
@@ -307,7 +313,7 @@ app.controller("MainController", ["$http", function($http) {
     };
 
     this.addToShow = (index) =>{
-        console.log(index);
+        console.log(this.gotRandomComics[index]);
         this.showArray = this.gotRandomComics[index];
         console.log(this.showArray);
         this.showComics = !this.showComics;
