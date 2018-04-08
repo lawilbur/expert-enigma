@@ -130,6 +130,7 @@ img {
 
 .nav-item:hover {
     cursor: pointer;
+    color: steelblue;
 }
 
 .searchContainer {
@@ -152,32 +153,42 @@ img {
 #footer {
     bottom: 0;
     margin: 0 auto;
-    max-width: 100%;
+    width: 100%;
     background: lightgrey;
     text-align: center;
-    color: white;
+    color: black;
     padding: 40px;
+    
 }
 
 #footer a {
-    color: white;
+    color: black;
 }
 
 #footer a:hover {
     opacity: 0.7;
+    color:steelblue;
 }
 
 .footer-links {
     padding: 0;
-    color: white;
+    /* color: white; */
     list-style: none;
     text-decoration: none;
+    margin-bottom: 0;
 }
 
 .footer-links a {
-    color: white;
-    margin-top: 15px;
+    /* color: white; */
+    /* margin-top: 15px; */
     text-decoration: none;
+}
+.footer-h6 {
+    /* color: white; */
+    /* margin-top: 15px; */
+    text-decoration: none;
+    margin-bottom: 0;
+    padding: 10px;
 }
 
 .footer-links a:hover {

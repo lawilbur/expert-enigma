@@ -10,11 +10,13 @@ const pepperController = require('./controllers/peppers.js');
 app.use('/peppers' , pepperController);
 
 
-mongoose.connect('mongodb://localhost:27017/peppers');
-mongoose.connection.once("open" , ()=>{
-    console.log("connected to peppers");
-})
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/peppers';
+mongoose.connect(mongoURI);
+mongoose.connection.once('open' , ()=>{
+    console.log('connected to peppers');
+});
 
-app.listen(3001 , ()=>{
+const port = process.env.PORT || 3001;
+app.listen(port , ()=>{
     console.log('Listening');
 })
