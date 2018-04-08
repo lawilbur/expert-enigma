@@ -254,7 +254,7 @@ app.controller("MainController", ["$http", function($http) {
     this.getComic = () => {
         $http({
             method: "GET",
-            url: "http://gateway.marvel.com/v1/public/comics?noVariants=true&titleStartsWith=" + this.comicTitle + "&limit=12&",
+            url: "http://gateway.marvel.com/v1/public/comics?noVariants=true&titleStartsWith=" + this.comicTitle + "&limit=42&",
             params: {
                 'apikey': '7b49ff852ac74755185800b0e24708a7',
                 'ts': Date.now(),
