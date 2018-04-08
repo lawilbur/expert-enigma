@@ -282,7 +282,7 @@ app.controller("MainController", ["$http", function($http) {
     };
 
     this.getRandomComic = () => {
-        let randomOffset = Math.floor(Math.random() * 2000);
+        let randomOffset = Math.floor(Math.random() * 29000);
         $http({
             method: "GET",
             url: "http://gateway.marvel.com/v1/public/comics?format=comic&noVariants=true&limit=30&offset=" + randomOffset + "&",
@@ -295,7 +295,7 @@ app.controller("MainController", ["$http", function($http) {
                 Accept: 'application/json'
             }
         }).then((response) => {
-            // console.log(response);
+            console.log(response);
             for(i = 0; i < response.data.data.results.length; i++){
                 // console.log(response.data.data.results[i].images[0]);
                 if(response.data.data.results[i].images[0] !== undefined){
