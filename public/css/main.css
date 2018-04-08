@@ -36,6 +36,8 @@ img {
     padding: 15px;
     border-radius: 5px;
     margin: 10px;
+    min-height: 400px;
+    background: lightsteelblue;
 }
 
 .card img {
@@ -74,7 +76,7 @@ img {
     color: white;
     font-family: 'Permanent Marker', cursive;
     text-shadow: 0 5px 5px black;
-    box-shadow: 0 5px 10px darkgray;
+    box-shadow: 0 5px 10px black;
     margin-top: 15px;
 }
 
@@ -112,8 +114,47 @@ img {
 }
 
 .scrollSpotlight {
-    height: 200px;
     background: grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    overflow: auto;
+    padding: 20px;
+}
+
+.showImageContainer {
+    text-align: center;
+    width: 20%;
+    background: white;
+    border-radius: 3px;
+}
+
+.showImageContainer img {
+    margin: 10px;
+}
+
+.showDetailsContainer {
+    min-height: 250px;
+    width: 30%;
+    background: white;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.showDetailsContainer h4 {
+    text-align: center;
+}
+
+.showDescriptionsContainer {
+    min-height: 250px;
+    width: 40%;
+    background: white;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.showDescriptionsContainer h4 {
+    text-align: center;
 }
 
 .navContainer {
