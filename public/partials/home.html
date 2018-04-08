@@ -13,18 +13,25 @@
 
     </div>
 
-    <div ng-if="ctrl.showComics" class="scrollSpotlight ">
-        <div ng-show="ctrl.showArray">
+
+    <div ng-if="ctrl.showComics" ng-show="ctrl.showArray" class="scrollSpotlight">
+        <div class="showImageContainer">
             <img ng-src="{{ctrl.showArray.images[0].path}}" title="{{show.title}}"/>
-            <div>
-                {{ctrl.showArray.title}}
-                {{ctrl.showArray.characters.items[0].name}}
-                <ul ng-repeat='creators in ctrl.showArray.creators.items'>
-                    <li>{{creators.role}}: {{creators.name}}</li>
-                </ul>
-            </div>
+        </div>
+        <div class="showDetailsContainer">
+            <h4>Details</h4>
+            {{ctrl.showArray.title}}
+            {{ctrl.showArray.characters.items[0].name}}
+            <ul ng-repeat='creators in ctrl.showArray.creators.items'>
+                <li>{{creators.role}}: {{creators.name}}</li>
+            </ul>
+        </div>        
+        <div class="showDescriptionsContainer">
+            <h4>Description</h4>
+            {{ctrl.showArray.description}}
         </div>
     </div>
+
 
     <div class="card-container">
         <div class="card text-center" style="width: 20rem;" ng-repeat='item in ctrl.gotComics'>
