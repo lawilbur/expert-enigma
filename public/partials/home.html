@@ -16,16 +16,16 @@
 
     <div ng-if="ctrl.showComics" ng-show="ctrl.showArray" class="scrollSpotlight">
         <div class="showImageContainer">
+            <h4>{{ctrl.showArray.title}}</h4>
             <img ng-src="{{ctrl.showArray.images[0].path}}" title="{{show.title}}"/>
+            <p><span>Characters:</span> {{ctrl.showArray.characters.items[0].name}}</p>
         </div>
         <div class="showDetailsContainer">
             <h4>Details</h4>
-            {{ctrl.showArray.title}}
-            {{ctrl.showArray.characters.items[0].name}}
             <ul ng-repeat='creators in ctrl.showArray.creators.items'>
-                <li>{{creators.role}}: {{creators.name}}</li>
+                <li><span>{{creators.role}}:</span> {{creators.name}}</li>
             </ul>
-        </div>        
+        </div>
         <div class="showDescriptionsContainer">
             <h4>Description</h4>
             {{ctrl.showArray.description}}
